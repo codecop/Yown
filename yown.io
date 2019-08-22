@@ -8,6 +8,8 @@ doRelativeFile("yown/splitlines.io")
 Yown := Object clone do(
 
   list("builder", "splitlines", "webrequest", "webserver") foreach(lib,
+    "Loading this library:" println
+    lib println
     doRelativeFile("yown/" .. lib .. ".io"))
 
   //

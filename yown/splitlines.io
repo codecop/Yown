@@ -22,7 +22,7 @@ Sequence hasSlot("splitLines") ifFalse(
 			)
 
 			if(nextCrIndex,
-				resultList append(slice(lineStart, nextCrIndex))
+				resultList append(exSlice(lineStart, nextCrIndex))
 				if(at(nextCrIndex + 1) == 10,
 					lineStart = nextCrIndex + 2
 				,
@@ -30,7 +30,7 @@ Sequence hasSlot("splitLines") ifFalse(
 				)
 			,
 				if(nextLfIndex,
-					resultList append(slice(lineStart, nextLfIndex))
+					resultList append(exSlice(lineStart, nextLfIndex))
 					lineStart = nextLfIndex + 1
 				,
 					break
@@ -38,7 +38,7 @@ Sequence hasSlot("splitLines") ifFalse(
 			)
 		)
 
-		resultList append(slice(lineStart, size))
+		resultList append(exSlice(lineStart, size))
 
 		return resultList
 	)
