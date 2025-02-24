@@ -1,7 +1,7 @@
 //
 // The most trivial Yown app
 //
-doRelativeFile("../yown.io")
+doRelativeFile("../io/Yown.io")
 
 YownSimple := Yown clone do(
   get("/test",
