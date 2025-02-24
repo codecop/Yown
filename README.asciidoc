@@ -1,6 +1,7 @@
 = Yown
 
-This repository contains my modified version of Yown that no longer uses deprecated functions. Yown was originally developed by Why the lucky stiff.
+This repository contains a modified version of Yown that no longer uses deprecated functions. Yown was originally developed by Why the lucky stiff.
 
 == Simple example
-See samples/simple.io for more info.
+
+See `samples/simple.io` for more info.
