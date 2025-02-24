@@ -1,0 +1,15 @@
+{
+  "name": "Yown",
+  "version": "0.1.0",
+  "description": "A little web for Io",
+  "author": "Why the lucky stiff",
+  "website": "",
+  "readme": "README.asciidoc",
+  "protos": [ "Yown" ],
+  "dependencies": {
+    "libs": [],
+    "headers": [],
+    "protos": [],
+    "packages": [ "CGI", "Socket", "Regex" ]
+  }
+}
