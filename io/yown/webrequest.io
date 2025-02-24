@@ -27,6 +27,7 @@ WebRequest := Object clone do(
 
   init := method(
     self sentCookies := Map clone
+    self sentHeaders := Map clone
   )
 
   lineBuffer := method(
@@ -219,10 +220,11 @@ WebRequest := Object clone do(
     sendList(call message argsEvaluatedIn(call sender))
   )
   sendHeader := method(key, value,
-    self send(key, ": ", value, "\r\n")
+    sentHeaders atPut(key, value)
   )
   endHeaders := method(
-    self send("\r\n")
+    // empty, kept for compatibility
+    self
   )
   sendResponse := method(code, message,
     self responseCode := code
@@ -236,11 +238,17 @@ WebRequest := Object clone do(
       "HTTP/1.1 " .. self responseCode asString .. " " ..
       self responseMessage .. "\r\n"
     )
+    self sentHeaders foreach(key, value,
+      self mySocket streamWrite(
+        key .. ": " .. value .. "\r\n"
+      )
+    )
     self sentCookies foreach(key, value,
       self mySocket streamWrite(
         "Set-cookie: " .. key .. "=" .. value .. "\r\n"
       )
     )
+    self mySocket streamWrite("\r\n")
     self mySocket streamWrite(sentBuffer asString)
     // writeln(sentBuffer asString) // debug
     self flush
