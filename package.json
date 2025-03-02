@@ -10,6 +10,6 @@
     "libs": [],
     "headers": [],
     "protos": [],
-    "packages": [ "CGI", "Socket", "Regex" ]
+    "packages": [ "https://github.com/IoLanguage/CGI.git", "https://github.com/IoLanguage/Socket.git", "https://github.com/IoLanguage/Regex.git" ]
   }
 }
