@@ -154,7 +154,7 @@ WebRequest := Object clone do(
         self currentParser := self getSlot("formParser")
         self contentLength := self headers at(
           "Content-Length"
-        )
+        ) asNumber
         self lineMode = nil
       )
     )
