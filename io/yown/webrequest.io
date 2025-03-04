@@ -163,10 +163,10 @@ WebRequest := Object clone do(
   formParser := method(data,
     lineBuffer appendSeq(data)
     if(lineBuffer size >= contentLength,
-      self queryPath := self arguments at(0)
-      self queryArgs := CGI parseString(
+      self parseQuery
+      self queryArgs = queryArgs merge (CGI parseString(
         lineBuffer asString
-      )
+      ))
       self handleRequest(self)
       lineBuffer empty
     )
