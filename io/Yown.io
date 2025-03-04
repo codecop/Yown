@@ -34,7 +34,7 @@ Yown := Object clone do(
     )
     if (match,
       doMessage(match at(1)),
-      "404 NOT FOUND")
+      req sendResponse(404, "NOT FOUND"))
   )
 
   //
