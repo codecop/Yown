@@ -7,9 +7,7 @@
 // days maybe?
 //
 MyHandler := WebRequest clone do(
-  "here" println
   handleRequest := method(request,
-    "INCOMING CONNECTION" println
     self sendResponse (200, "OK")
     self sendHeader ("Content-type", "text/HTML")
     self endHeaders ()
@@ -21,7 +19,6 @@ MyHandler := WebRequest clone do(
 WebServer := Server clone do(
   setPort(8010)
   handleSocket := method(aSocket,
-    aSocket println
     handler := Yown MyHandler clone
     handler app := app
     handler @handleSocket(aSocket)
